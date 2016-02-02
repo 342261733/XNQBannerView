@@ -25,7 +25,7 @@ UIScrollViewDelegate > {
     NSInteger         _imageIndex;
     NSInteger         _initFlag;
     CGFloat           _autoScrollDelay;
-    NSMutableArray  *_arrImage;
+    NSMutableArray  * _arrImage;
 }
 
 @end
@@ -82,7 +82,7 @@ UIScrollViewDelegate > {
     _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     _pageControl.currentPageIndicatorTintColor =  [UIColor whiteColor];
     _pageControl.enabled = NO;
-    //    [_pageControl addTarget:self action:@selector(pageControlValueChange) forControlEvents:UIControlEventValueChanged];
+    //[_pageControl addTarget:self action:@selector(pageControlValueChange) forControlEvents:UIControlEventValueChanged];
 }
 
 /*   
@@ -154,9 +154,17 @@ UIScrollViewDelegate > {
             }
             else if ([imageObj isKindOfClass:[NSString class]]) {
                 if ([imageObj hasPrefix:@"http://"] || [imageObj hasPrefix:@"https://"]) {
-                    [[SDWebImageManager sharedManager] downloadImageWithURL:imageObj options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                    [[SDWebImageManager sharedManager] downloadImageWithURL:imageObj
+                                                                    options:0
+                                                                   progress:^(NSInteger receivedSize,
+                                                                              NSInteger expectedSize) {
                         
-                    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                    } completed:^(UIImage *image,
+                                  NSError *error,
+                                  SDImageCacheType cacheType,
+                                  BOOL finished,
+                                  NSURL *imageURL) {
+                        //** 下载完成 更新图片
                         [_arrImage replaceObjectAtIndex:i withObject:image];
                         if (_imageIndex == i) {
                             _centerImageView.image = image;
