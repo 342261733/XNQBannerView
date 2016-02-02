@@ -16,7 +16,7 @@
 2） default is 2.0s  
 
 
-##网络图片需要配置默认的图片，等待下载  
+##注意：加载网络图片需要配置默认的图片，等待下载，否则报错  
 
 static NSString *const strBannerDefaultImageName = @"default.png";
 
