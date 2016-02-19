@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46C0B4A61921185048C9163F /* libPods-XNQBannerView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1195D60064708C8F1BCF3 /* libPods-XNQBannerView.a */; };
+		6E285BFF1C76CAE3005B97B9 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E285BFE1C76CAE3005B97B9 /* default.png */; };
 		6E59B3C51C608B1200032AA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E59B3C41C608B1200032AA2 /* main.m */; };
 		6E59B3C81C608B1200032AA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E59B3C71C608B1200032AA2 /* AppDelegate.m */; };
 		6E59B3CB1C608B1200032AA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E59B3CA1C608B1200032AA2 /* ViewController.m */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		59BDF37B7BABA5BEF18D4E88 /* Pods-XNQBannerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XNQBannerView.release.xcconfig"; path = "Pods/Target Support Files/Pods-XNQBannerView/Pods-XNQBannerView.release.xcconfig"; sourceTree = "<group>"; };
+		6E285BFE1C76CAE3005B97B9 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		6E59B3C01C608B1200032AA2 /* XNQBannerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XNQBannerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E59B3C41C608B1200032AA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E59B3C61C608B1200032AA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		6E59B3FA1C608BBF00032AA2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6E285BFE1C76CAE3005B97B9 /* default.png */,
 				6E59B3FB1C608BCC00032AA2 /* 4.jpg */,
 				6E59B3FC1C608BCC00032AA2 /* 3.jpg */,
 				6E59B3FD1C608BCC00032AA2 /* 2.jpg */,
@@ -306,6 +309,7 @@
 				6E59B4011C608BCC00032AA2 /* 2.jpg in Resources */,
 				6E59B4001C608BCC00032AA2 /* 3.jpg in Resources */,
 				6E59B3FF1C608BCC00032AA2 /* 4.jpg in Resources */,
+				6E285BFF1C76CAE3005B97B9 /* default.png in Resources */,
 				6E59B3D31C608B1200032AA2 /* LaunchScreen.storyboard in Resources */,
 				6E59B3D01C608B1200032AA2 /* Assets.xcassets in Resources */,
 				6E59B3CE1C608B1200032AA2 /* Main.storyboard in Resources */,
