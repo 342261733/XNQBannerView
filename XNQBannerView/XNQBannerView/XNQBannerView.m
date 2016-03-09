@@ -108,6 +108,9 @@ UIScrollViewDelegate > {
  */
 
 - (void)setupTimer {
+    if (_arrImage.count <= 1) {
+        return;
+    }
     _timer = [NSTimer scheduledTimerWithTimeInterval:_autoScrollDelay
                                               target:self
                                             selector:@selector(scrollTimer)
