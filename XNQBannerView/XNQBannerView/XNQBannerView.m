@@ -82,6 +82,7 @@ UIScrollViewDelegate > {
     _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     _pageControl.currentPageIndicatorTintColor =  [UIColor whiteColor];
     _pageControl.enabled = NO;
+    _pageControl.hidesForSinglePage = YES;
     //[_pageControl addTarget:self action:@selector(pageControlValueChange) forControlEvents:UIControlEventValueChanged];
 }
 
