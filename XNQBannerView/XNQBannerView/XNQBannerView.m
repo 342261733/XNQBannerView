@@ -74,15 +74,17 @@ UIScrollViewDelegate > {
 }
 
 - (void)setupPageControl {
-    _pageControl = [[UIPageControl alloc] init];
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] init];
+        _pageControl.currentPage = 0;
+        _pageControl.frame = CGRectMake(kBannerWidth, 0, 20*_pageControl.numberOfPages, 20);
+        _pageControl.center = CGPointMake(kBannerWidth/2, kBannerHeight - 10 + self.frame.origin.y);
+        _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+        _pageControl.currentPageIndicatorTintColor =  [UIColor whiteColor];
+        _pageControl.enabled = NO;
+        _pageControl.hidesForSinglePage = YES;
+    }
     _pageControl.numberOfPages = _arrImage.count;
-    _pageControl.currentPage = 0;
-    _pageControl.frame = CGRectMake(kBannerWidth, 0, 20*_pageControl.numberOfPages, 20);
-    _pageControl.center = CGPointMake(kBannerWidth/2, kBannerHeight - 10 + self.frame.origin.y);
-    _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    _pageControl.currentPageIndicatorTintColor =  [UIColor whiteColor];
-    _pageControl.enabled = NO;
-    _pageControl.hidesForSinglePage = YES;
     //[_pageControl addTarget:self action:@selector(pageControlValueChange) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -170,15 +172,17 @@ UIScrollViewDelegate > {
                                                                        //** 下载完成 更新图片
                                                                        if (image) {
                                                                            [_arrImage replaceObjectAtIndex:i withObject:image];
-                                                                           if (_imageIndex == i) {
-                                                                               _centerImageView.image = image;
-                                                                           }
-                                                                           else if (_imageIndex == i-1) {
-                                                                               _rightImageView.image = image;
-                                                                           }
-                                                                           else if (_imageIndex == i+1) {
-                                                                               _leftImageView.image = image;
-                                                                           }
+                                                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                                                               if (_imageIndex == i) {
+                                                                                   _centerImageView.image = image;
+                                                                               }
+                                                                               else if (_imageIndex == i-1) {
+                                                                                   _rightImageView.image = image;
+                                                                               }
+                                                                               else if (_imageIndex == i+1) {
+                                                                                   _leftImageView.image = image;
+                                                                               }
+                                                                           });
                                                                        }
                                                                    }];
                 }
