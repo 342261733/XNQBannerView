@@ -171,7 +171,12 @@ UIScrollViewDelegate > {
                                                                                  NSURL *imageURL) {
                                                                        //** 下载完成 更新图片
                                                                        if (image) {
-                                                                           [_arrImage replaceObjectAtIndex:i withObject:image];
+                                                                           if (_arrImage == nil) {//**注意更新的时候网络请求如果很快，先执行这个。
+                                                                               [marrImage replaceObjectAtIndex:i withObject:image];
+                                                                           }
+                                                                           else {
+                                                                               [_arrImage replaceObjectAtIndex:i withObject:image];
+                                                                           }
                                                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                                                if (_imageIndex == i) {
                                                                                    _centerImageView.image = image;

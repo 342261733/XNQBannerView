@@ -7,7 +7,7 @@
 //
 
 #import "XNQBannerView.h"
-#import "SDWebImageManager.h"
+//#import "SDWebImageManager.h"
 
 #define kBannerWidth self.bounds.size.width
 #define kBannerHeight self.bounds.size.height
@@ -158,37 +158,37 @@ UIScrollViewDelegate > {
                 [marrImage replaceObjectAtIndex:i withObject:imageObj];
             }
             else if ([imageObj isKindOfClass:[NSString class]]) {
-                if ([imageObj hasPrefix:@"http://"] || [imageObj hasPrefix:@"https://"]) {
-                    [[SDWebImageManager sharedManager] downloadImageWithURL:imageObj
-                                                                    options:0
-                                                                   progress:^(NSInteger receivedSize,
-                                                                              NSInteger expectedSize) {
-                                                                       
-                                                                   } completed:^(UIImage *image,
-                                                                                 NSError *error,
-                                                                                 SDImageCacheType cacheType,
-                                                                                 BOOL finished,
-                                                                                 NSURL *imageURL) {
-                                                                       //** 下载完成 更新图片
-                                                                       if (image) {
-                                                                           [_arrImage replaceObjectAtIndex:i withObject:image];
-                                                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                                                               if (_imageIndex == i) {
-                                                                                   _centerImageView.image = image;
-                                                                               }
-                                                                               else if (_imageIndex == i-1) {
-                                                                                   _rightImageView.image = image;
-                                                                               }
-                                                                               else if (_imageIndex == i+1) {
-                                                                                   _leftImageView.image = image;
-                                                                               }
-                                                                           });
-                                                                       }
-                                                                   }];
-                }
-                else {
-                    [marrImage replaceObjectAtIndex:i withObject:[UIImage imageNamed:imageObj]];
-                }
+//                if ([imageObj hasPrefix:@"http://"] || [imageObj hasPrefix:@"https://"]) {
+//                    [[SDWebImageManager sharedManager] downloadImageWithURL:imageObj
+//                                                                    options:0
+//                                                                   progress:^(NSInteger receivedSize,
+//                                                                              NSInteger expectedSize) {
+//                                                                       
+//                                                                   } completed:^(UIImage *image,
+//                                                                                 NSError *error,
+//                                                                                 SDImageCacheType cacheType,
+//                                                                                 BOOL finished,
+//                                                                                 NSURL *imageURL) {
+//                                                                       //** 下载完成 更新图片
+//                                                                       if (image) {
+//                                                                           [_arrImage replaceObjectAtIndex:i withObject:image];
+//                                                                           dispatch_async(dispatch_get_main_queue(), ^{
+//                                                                               if (_imageIndex == i) {
+//                                                                                   _centerImageView.image = image;
+//                                                                               }
+//                                                                               else if (_imageIndex == i-1) {
+//                                                                                   _rightImageView.image = image;
+//                                                                               }
+//                                                                               else if (_imageIndex == i+1) {
+//                                                                                   _leftImageView.image = image;
+//                                                                               }
+//                                                                           });
+//                                                                       }
+//                                                                   }];
+//                }
+//                else {
+//                    [marrImage replaceObjectAtIndex:i withObject:[UIImage imageNamed:imageObj]];
+//                }
             }
         }
         return marrImage;
